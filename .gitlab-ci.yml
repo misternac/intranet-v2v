@@ -1,0 +1,16 @@
+stages:
+  - deploy
+
+deploy_template:
+  stage: deploy
+  script:
+    - echo "📦 Déploiement du template Joomla vers le serveur cPanel..."
+    - apt-get update -qq && apt-get install -y rsync openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H intranet.gem-car-cloud.com >> ~/.ssh/known_hosts
+    - rsync -avz --delete template/template_gemcar/ gemcarcloud@intranet.gem-car-cloud.com:/home/gemcarcloud/public_html/intranet.gem-car-cloud.com/templates/template_gemcar/
+  only:
+    - main
+  when: manual
