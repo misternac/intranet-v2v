@@ -1,16 +1,17 @@
 stages:
+  - test
   - deploy
 
-deploy_template:
-  stage: deploy
+test_ssh_connection:
+  stage: test
   script:
-    - echo "📦 Déploiement du template Joomla vers le serveur cPanel..."
-    - apt-get update -qq && apt-get install -y rsync openssh-client
+    - apt-get update -qq && apt-get install -y openssh-client
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -H intranet.gem-car-cloud.com >> ~/.ssh/known_hosts
-    - rsync -avz --delete template/template_gemcar/ gemcarcloud@intranet.gem-car-cloud.com:/home/gemcarcloud/public_html/intranet.gem-car-cloud.com/templates/template_gemcar/
+    - echo "✅ Tentative de connexion SSH..."
+    - ssh -o StrictHostKeyChecking=no gemcarcloud@intranet.gem-car-cloud.com "echo ✅ Connexion réussie depuis GitLab CI !"
   only:
     - main
   when: manual
