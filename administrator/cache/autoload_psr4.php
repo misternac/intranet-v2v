@@ -152,6 +152,7 @@ return [
 	'Joomla\\Plugin\\Editors\\TinyMCE\\' => [JPATH_PLUGINS . '\editors/tinymce/src'],
 	'Joomla\\Plugin\\Extension\\Finder\\' => [JPATH_PLUGINS . '\extension/finder/src'],
 	'Joomla\\Plugin\\Extension\\Joomla\\' => [JPATH_PLUGINS . '\extension/joomla/src'],
+	'Joomla\\Plugin\\Extension\\Joomlaupdate\\' => [JPATH_PLUGINS . '\extension/joomlaupdate/src'],
 	'Joomla\\Plugin\\Extension\\NamespaceMap\\' => [JPATH_PLUGINS . '\extension/namespacemap/src'],
 	'Joomla\\Plugin\\Fields\\Calendar\\' => [JPATH_PLUGINS . '\fields/calendar/src'],
 	'Joomla\\Plugin\\Fields\\Checkboxes\\' => [JPATH_PLUGINS . '\fields/checkboxes/src'],

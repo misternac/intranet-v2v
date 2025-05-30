@@ -4,20 +4,20 @@ import { JoomlaEditor, JoomlaEditorButton } from 'editor-api';
  * @copyright  (C) 2023 Open Source Matters, Inc. <https://www.joomla.org>
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
+// eslint-disable-next-line import/no-unresolved
 
 /**
  * @param {Editor} editor
  */
 const pluginSetUp = editor => {
+  var _editor$options$get;
   editor.options.register('joomlaExtButtons', {
-    processor: 'object',
-    default: {
-      names: []
-    }
+    // Check for Object with list of buttons, or empty list
+    processor: val => typeof val === 'object' && Array.isArray(val.names) || Array.isArray(val) && val.length === 0
   });
 
   // Get buttons list
-  const buttons = editor.options.get('joomlaExtButtons').names || [];
+  const buttons = ((_editor$options$get = editor.options.get('joomlaExtButtons')) == null ? void 0 : _editor$options$get.names) || [];
   if (!buttons.length) {
     return;
   }

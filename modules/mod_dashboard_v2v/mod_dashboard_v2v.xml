@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+    <name>mod_dashboard_v2v</name>
+    <author>V2V Technologies Inc.</author>
+    <version>1.0.0</version>
+    <description>Tableau de bord personnalisé V2V</description>
+    <files>
+        <filename module="mod_dashboard_v2v">mod_dashboard_v2v.php</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+    </files>
+</extension>
